@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+    <!-- 登录页面 -->
+    <form class="login" action="">
+        <div class="icon"><img src="../IMAGE/DDZP-icon.png" alt="DDZP-icon"></div>
+        <div class="id"><input type="text" placeholder="账号" pattern="\d*"></div>
+        <div class="psw">
+            <input type="password" placeholder="密码" class="psw-container">
+            <img src="../IMAGE/eye-close.svg" alt="eye-close" class="toggle">
+        </div>
+        <div class="agreement">
+            <input type="checkbox" name="choice" value="ture">
+            <div>我已阅读并同意<a href="#">《美团用户服务协议》</a>、<a href="#">《隐私政策》</a>等，未注册的手机号验证后将创建点评账号</div>
+        </div>
+        <button>登录</button>
+    </form>
+    <script src="../JS/login.js"></script>
+</body>
+</html>

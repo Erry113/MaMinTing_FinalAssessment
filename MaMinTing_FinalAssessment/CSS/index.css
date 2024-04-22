@@ -1,0 +1,495 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* #region登录页面start */
+.login {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 115px;
+    align-items: center;
+    width: 300px;
+}
+/* .login .active {
+    display: block;
+}
+.login:not(.active){
+    display: none;
+} */
+.login .icon img {
+    width: 245px;
+    margin-bottom: 30px;
+}
+.login .id input,.login .psw input {
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    padding: 4px 10px;
+    outline: none;
+    caret-color: #f98e30;
+}
+.login .id input {
+    margin-bottom: 10px;
+}
+.login .psw {
+    position: relative;
+}
+.login .psw img {
+    position: absolute;
+    width: 16px;
+    top: 10px;
+    right: 10px;
+}
+.login .agreement {
+    display: flex;
+    font-size: 10px;
+    margin: 14px 0;
+}
+.login .agreement input {
+    margin-top: -10px;
+    margin-right: 8px;
+}
+.login .agreement a {
+    color: rgb(10, 110, 233);
+}
+.login button {
+    height: 30px;
+    color: white;
+    background-image: linear-gradient(to right, #f98e30, #f73307);
+    font-size: 15px;
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    margin: 0 auto;
+}
+/* #endregion登录页面end */
+
+/* #region主页面start */
+.main-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: relative;
+}
+.main-page .active {
+    display: block;
+}
+.main-page:not(.active) {
+    display: none;
+}
+.main-page .top-tag {
+    display: flex;
+    height: 40px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    position: relative;
+}
+.main-page .top-tag .more {
+    position: absolute;
+    width: 18px;
+    top: 8px;
+    right: 20px;
+}
+.main-page .top-tag .note {
+    margin-right: 30px;
+}
+.main-page .top-tag .GZ img {
+    width: 12px;
+    margin-left: 5px;
+    position: absolute;
+    top: 20px;
+    right: 130px;
+}
+.active1 {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    text-decoration-color: #fb6e02;
+}
+.main-page .search-container {
+    height: 30px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 2px 3px;
+    border: 1px solid rgb(255, 140, 0);
+}
+.main-page .search-container img {
+    padding: 0 2px;
+    padding-top: 5px;
+    width: 18px;
+}
+.main-page .search-container input {
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    border-left: 1px solid gainsboro;
+    width: 304px;
+}
+.main-page .search-container button {
+    width: 40px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #f98e30, #f73307);
+    color: white;
+}
+.main-page .main-page-tab {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    color: gray;
+}
+.main-page .main-page-tab .bold {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+}
+.main-page .main-page-tab img {
+    width: 12px;
+}
+.main-page .post {
+    width: 100%;
+    height: 100vh;
+    background-color: beige;
+}
+.main-page .follow-post {
+    background-color: rgb(208, 235, 244);
+}
+.main-page .nearby-post {
+    background-color: lightgrey;
+}
+.main-page .spring-post {
+    background-color: rgb(249, 219, 223);
+}
+.main-page .food-post {
+    background-color: lightcyan;
+}
+.main-page .trip-post {
+    background-color: lightgoldenrodyellow;
+}
+.main-page .post {
+    display: none;
+}
+.main-page .post .active {
+    display: block;
+}
+.GZ-page .active {
+    display: block;
+}
+.GZ-page:not(.active) {
+    display: none;
+}
+.main-page .bottom-tab {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: gray;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+}
+.turn-org {
+    color: #f26e09;
+    font-weight: bold;
+}
+.page:not(.active) {
+    display: none;
+}
+.page .active {
+    display: block;
+}
+.main-page .bottom-tab  li:nth-child(3) {
+    background-image: linear-gradient(to right, #f98e30, #f73307);
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+}
+.note-page .note-page-post {
+    margin-top: 18px;
+    height: 100vh;
+    background-color: beige;
+}
+.note-page .active {
+    display: block;
+}
+.note-page:not(.active) {
+    display: none;
+}
+/* #endregion页面end */
+
+/* #region搜索页面start */
+.search-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(247, 247, 247);
+}
+.search-page:not(.active) {
+    display: none;
+}
+.search-page .active {
+    display: block;
+}
+.search-page .search-page-container {
+    display: flex;
+    margin-top: 10px;
+    line-height: 30px;
+}
+.search-page .search-page-container img {
+    margin-top: 5px;
+}
+.search-page .search-page-container input {
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    width: 250px;
+    height: 30px;
+    margin: 0 20px;
+    border-radius: 15px;
+    caret-color: #f26e09;
+}
+.search-page .search-page-container button {
+    line-height: 20px;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+}
+.search-page .history-search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.search-page .history-search .topbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+}
+.search-page .history-search .content {
+    width: 100%;
+    height: 500px;
+}
+.page .active {
+    display: block;
+}
+.page {
+    display: none;
+}
+
+/* #endregion搜索页面end */
+
+/* #region消息页面start */
+.message-page {
+    width: 100%;
+    height: 708px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.message-page .topbar {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+}
+.message-page .items {
+    width: 100%;
+    display: flex;
+    margin: 30px 0;
+    font-size: 13px;
+    color: grey;
+    justify-content: space-evenly;
+}
+.message-page .items img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+.message-page .items .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+.message-page .message-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.message-page .message-list li {
+    display: flex;
+    margin: 10px 0;
+}
+.message-page .message-list li .content {
+    font-size: 14px;
+    color: gray;
+    margin-top: 3px;
+}
+.message-page .message-list li img {
+    width: 48px;
+    margin: 0 10px;
+}
+.message-page .message-list li .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.message-page .active {
+    display: block;
+}
+.message-page:not(.active) {
+    display: none;
+}
+
+/* #endregion消息页面end */
+
+/* 其他页面 */
+.video-page,.post-page,.mine-page {
+    width: 100%;
+    /* height: 708px; */
+    height: 100%;
+}
+
+/* 发布笔记页面 */
+.post-notes-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.post-notes-page .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 8px;
+}
+.post-notes-page .post-image {
+    width: 110px;
+    height: 110px;
+    font-size: 35px;
+    color: rgb(189, 187, 187);
+    border-radius: 15px;
+    background-color: rgb(244, 244, 244);
+    text-align: center;
+    line-height: 110px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.post-notes-page .note-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+.post-notes-page .note-content textarea {
+    border: none;
+}
+.post-notes-page .note-content textarea:focus {
+    outline: none;
+}
+.post-notes-page .note-content .topic textarea {
+    border-bottom: 1px solid rgb(222, 221, 221);
+    font-size: 17px;
+    padding-bottom: 12px;
+}
+.post-notes-page .note-content .main-content textarea {
+    padding-top: 18px;
+}
+.post-notes-page .label {
+    background-color: rgb(249, 246, 246);
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 3px 7px;
+    color: gray;
+    margin-right: 8px;
+}
+.post-notes-page .add-tag {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    margin-top: 15px;
+    border-bottom: 1px solid rgb(222, 221, 221);
+}
+.post-notes-page .add-tag .tag-search {
+    display: flex;
+}
+.post-notes-page .add-tag .tag-search div {
+    color: black;
+}
+.post-notes-page .add-tag .tag-choices {
+    display: flex;
+    margin: 11px 0;
+}
+.post-notes-page .spot-tag {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    margin-top: 10px;
+}
+.post-notes-page .spot-tag .spot-topic {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    align-items: center;
+}
+.post-notes-page .spot-tag .spot-topic img {
+    width: 20px;
+}
+.post-notes-page .spot-tag .spot-topic .select {
+    color: gray;
+    margin-bottom: 10px;
+}
+.post-notes-page .spot-tag .spot-topic .add-spot {
+    display: flex;
+}
+.post-notes-page .spot-tag .spot-choices {
+    display: flex;
+}
+.post-notes-page .post-bottom-tab {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 15px;
+}
+.post-notes-page .post-bottom-tab .draft {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.post-notes-page .post-bottom-tab .draft img {
+    width: 16px;
+    margin: auto;
+}
+.post-notes-page .post-bottom-tab .post-btn {
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #f98e30, #f73307);
+    color: white;
+    font-size: 15px;
+}
