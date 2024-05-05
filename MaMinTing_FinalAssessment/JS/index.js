@@ -1,29 +1,83 @@
-// //登录页面跳转主页面
-// const loginBtn = document.querySelector('.login-btn')
-// const loginPage = document.querySelector('.login')
-// console.log(loginPage);
-// loginBtn.addEventListener('click',function(){
-//     console.log('点击了');
-//     loginPage.classList.remove('active')
-//     mainPage.classList.add('active')
-//     console.log(loginPage);
-//     console.log(mainPage);
-// })
+//密码可视切换
+const psw = document.querySelector('.psw-container')
+const toggleBtn = document.querySelector('.toggle')
+toggleBtn.addEventListener('click',function(){
+    if (psw.type === 'password') {
+        psw.type = 'text'
+        toggleBtn.src = '../IMAGE/eye-open.svg'
+    }else {
+        psw.type = 'password'
+        toggleBtn.src = '../IMAGE/eye-close.svg'
+    }
+})
+//登录效果
+const loginPage = document.querySelector('.login')
+document.querySelector('.login-btn').addEventListener('click', function(event) {
+    event.preventDefault() 
+    const account = document.querySelector('.account').value
+    const password = document.querySelector('.password').value
+    const unregistered = document.querySelector('.unregistered')
+    const passwordWorry = document.querySelector('.password-worry')
+    const accountInput = document.querySelector('.id input')
+    const passwordInput = document.querySelector('.psw input')
+    const loginSuccess = document.querySelector('.login-success')
+    const agreementBox = document.querySelector('.agreement-box')
+    const isChecked = agreementBox.checked
+    console.log(agreementBox);
+    console.log(account,password);
 
-// //密码可视切换
-// const psw = document.querySelector('.psw-container')
-// const toggleBtn = document.querySelector('.toggle')
-// console.log(psw);
-// console.log(toggleBtn);
-// toggleBtn.addEventListener('click',function(){
-//     if (psw.type === 'password') {
-//         psw.type = 'text'
-//         toggleBtn.src = '../IMAGE/eye-open.svg'
-//     }else {
-//         psw.type = 'password'
-//         toggleBtn.src = '../IMAGE/eye-close.svg'
-//     }
-// })
+    fetch('http://8.134.148.60:4000/user/login',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+            account:account,
+            password:password
+        })
+    })
+    .then(response =>{
+        if (!response.ok){
+            throw new Error('未输入内容')
+        }
+        return response.json()
+    })
+    .then(data => {
+        console.log(data);
+        console.log(data.msg);
+        if ( isChecked ){
+            if ( data.msg === '该账号不存在，请先进行注册'){
+                passwordWorry.classList.remove('show')
+                unregistered.classList.add('show')
+                passwordInput.style.border = '1px solid gray'
+                accountInput.style.border = '1px solid #ff1c1c'
+            }else if (data.msg === '密码错误！请重新输入') {
+                unregistered.classList.remove('show')
+                passwordWorry.classList.add('show')
+                accountInput.style.border = '1px solid gray'
+                passwordInput.style.border = '1px solid #ff1c1c'
+            } else {
+                unregistered.classList.remove('show')
+                passwordWorry.classList.remove('show')
+                accountInput.style.border = '1px solid gray'
+                passwordInput.style.border = '1px solid gray'
+                loginSuccess.style.opacity = '1'
+                setTimeout(function(){
+                    loginSuccess.style.opacity = '0'
+                    document.querySelector('.login').reset()
+                    loginPage.classList.remove('active')
+                    mainPage.classList.add('active')
+                },1000)
+            }
+        } else {
+            alert('请先勾选协议')
+        }
+    })
+    .catch(error => {
+        console.error(error)
+        alert('请先输入内容')
+    })
+})
 
 // 搜索页面切换
 const SearchInput = document.querySelector('#search-input')
@@ -37,6 +91,9 @@ SearchInput.addEventListener('click',function(){
 returnBtn.addEventListener('click',function(){
     searchPage.classList.remove('active')
     mainPage.classList.add('active')
+    searching.classList.remove('active')
+    historySearch.classList.add('active')
+    // document.querySelector('.searching-content').reset()
 })
 
 //顶部导航栏切换

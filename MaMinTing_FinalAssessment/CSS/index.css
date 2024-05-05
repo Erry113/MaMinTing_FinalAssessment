@@ -5,11 +5,11 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-body {
+html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -17,31 +17,36 @@ body {
 .login {
     display: flex;
     flex-direction: column;
-    margin-bottom: 115px;
+    margin-bottom: 80px;
     align-items: center;
     width: 300px;
 }
-/* .login .active {
+.login .active {
     display: block;
 }
 .login:not(.active){
     display: none;
-} */
+}
 .login .icon img {
     width: 245px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
+}
+.unregistered, .password-worry{
+    color: #ff1c1c;
+    margin: 3px 0;
+    opacity: 0;
+}
+.unregistered.show, .password-worry.show {
+    opacity: 1;
 }
 .login .id input,.login .psw input {
     width: 250px;
-    height: 30px;
-    border-radius: 15px;
+    height: 37px;
+    border-radius: 30px;
     border: 1px solid gray;
     padding: 4px 10px;
     outline: none;
     caret-color: #f98e30;
-}
-.login .id input {
-    margin-bottom: 10px;
 }
 .login .psw {
     position: relative;
@@ -55,7 +60,8 @@ body {
 .login .agreement {
     display: flex;
     font-size: 10px;
-    margin: 14px 0;
+    margin-bottom: 14px;
+    margin-top: 5px;
 }
 .login .agreement input {
     margin-top: -10px;
@@ -65,14 +71,24 @@ body {
     color: rgb(10, 110, 233);
 }
 .login button {
-    height: 30px;
+    height: 37px;
     color: white;
     background-image: linear-gradient(to right, #f98e30, #f73307);
     font-size: 15px;
-    border-radius: 15px;
+    border-radius: 30px;
     border: none;
     width: 250px;
     margin: 0 auto;
+}
+.login-success {
+    font-weight: bold;
+    color: rgb(43, 211, 43);
+    margin-bottom: 3px;
+    opacity: 0;
+}
+.login button:active {
+    box-shadow: 0 2px #bebdbd;
+    transform: translateY(1px);
 }
 /* #endregion登录页面end */
 
@@ -91,14 +107,22 @@ body {
 .main-page:not(.active) {
     display: none;
 }
+.mainpage-topbar {
+    position: sticky;
+    top: -1px;
+    z-index: 1000;
+    width: 100%;
+    background-color: white;
+}
 .main-page .top-tag {
     display: flex;
     height: 40px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     align-items: center;
     justify-content: center;
     color: gray;
-    position: relative;
+    /* position: relative; */
+    
 }
 .main-page .top-tag .more {
     position: absolute;
@@ -109,12 +133,15 @@ body {
 .main-page .top-tag .note {
     margin-right: 30px;
 }
+.main-page .top-tag .GZ {
+    position: relative;
+}
 .main-page .top-tag .GZ img {
     width: 12px;
     margin-left: 5px;
     position: absolute;
-    top: 20px;
-    right: 130px;
+    top: 11px;
+    left: 36px;
 }
 .active1 {
     color: black;
@@ -142,7 +169,7 @@ body {
     outline: none;
     padding-left: 5px;
     border-left: 1px solid gainsboro;
-    width: 304px;
+    width: 100%;
 }
 .main-page .search-container button {
     width: 40px;
@@ -157,8 +184,14 @@ body {
     align-items: center;
     height: 50px;
     color: gray;
+    /* padding-top: 1px; */
+    position: sticky;
+    top: 69px;
+    z-index: 1000;
+    width: 100%;
+    background-color: white;
 }
-.main-page .main-page-tab .bold {
+.bold {
     color: black;
     font-weight: bold;
     font-size: 17px;
@@ -168,8 +201,73 @@ body {
 }
 .main-page .post {
     width: 100%;
-    height: 100vh;
-    background-color: beige;
+    height: 100%;
+}
+.post-container {
+    margin: 0 auto;
+    position: relative;
+}
+.post-container::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.post-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 200px;
+    background-color: white;
+    float: left;
+}
+.post-content:nth-child(2){
+    margin: 0 5px;
+}
+.article-cover {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.article-cover img {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.author-information {
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+.author-basic-information {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+.author-headphoto {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+.author-headphoto img {
+    width: 100%;
+    height: 100%;
+}
+.author-name {
+    color: gray;
+    margin-bottom: 3px;
+}
+.author-other-information {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+.article-likenum {
+    margin-left: 5px;
+}
+.main-page .recommend-post {
+    /* height: 100vh;
+    padding-bottom: 50px; */
+    background-color: #f5f5f5;
 }
 .main-page .follow-post {
     background-color: rgb(208, 235, 244);
@@ -205,9 +303,10 @@ body {
     align-items: center;
     justify-content: space-around;
     color: gray;
-    position: absolute;
-    bottom: 0;
     background-color: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 900;
 }
 .turn-org {
     color: #f26e09;
@@ -227,7 +326,7 @@ body {
 }
 .note-page .note-page-post {
     margin-top: 18px;
-    height: 100vh;
+    height: 100%;
     background-color: beige;
 }
 .note-page .active {
@@ -255,8 +354,12 @@ body {
     display: block;
 }
 .search-page .search-page-container {
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
     display: flex;
     margin-top: 10px;
+    padding: 0 10px;
     line-height: 30px;
 }
 .search-page .search-page-container img {
@@ -266,22 +369,32 @@ body {
     border: none;
     outline: none;
     padding: 0 10px;
-    width: 250px;
+    width: 75%;
     height: 30px;
-    margin: 0 20px;
     border-radius: 15px;
     caret-color: #f26e09;
 }
 .search-page .search-page-container button {
     line-height: 20px;
     font-size: 16px;
+    padding: 5px 8px;
     border: none;
     background-color: transparent;
+}
+.search-page .search-page-container .search-btn:active {
+    background-color: #e0e0e0;
+    border-radius: 15px;
 }
 .search-page .history-search {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+.history-search:not(.active) {
+    display: none;
+}
+.history-search .active {
+    display: block;
 }
 .search-page .history-search .topbar {
     display: flex;
@@ -290,7 +403,17 @@ body {
 }
 .search-page .history-search .content {
     width: 100%;
-    height: 500px;
+    padding: 3px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.history-content {
+    background-color: #edeaea;
+    display: inline-block;
+    padding: 3px 10px;
+    color: rgb(177, 174, 174);
+    border-radius: 15px;
 }
 .page .active {
     display: block;
@@ -298,8 +421,155 @@ body {
 .page {
     display: none;
 }
+.searching {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: none;
+}
+.searching:not(.active) {
+    display: none;
+}
+.searching .active {
+    display: block;
+}
+.searching .searching-topbar {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 15px;
+    font-size: 18px;
+}
+.searching .search-account {
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 8px;
+}
+.searching .search-account img {
+    width: 23px;
+    margin: 12px 5px;
+}
+.search-account-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-account-tab-left {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.search-account-tab .more {
+    color: rgb(103, 102, 102);
+    font-size: 14px;
+}
+.search-account-items {
+    display: flex;
+    flex-direction: column;
+}
+.search-account-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebe8e8;
+}
+.account-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-account-content:last-child {
+    border-bottom: none;
+}
+.account-information .heads {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: gray;
+    margin: 0 7px;
+}
+.account-information1 {
+    display: flex;
+    flex-direction: column;
+}
+.account-information .name {
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+.account-information2 {
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 13px;
+}
+.account-information2 .fan-num {
+    border-right: 1px solid gray;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+.follow {
+    width: 65px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #ff6f00;
+    border: 1px solid #ff6f00;
+    border-radius: 20px;
+}
+.middle-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 30px;
+    color: gray;
+}
+.middle-tab .left-items {
+    display: flex;
+}
+.middle-tab .right-items {
+    display: flex;
+}
+.middle-tab .right-items img {
+    margin-top: 3px;
+    margin-left: 3px;
+}
+.middle-tab .right-items .photo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-left: 1px solid rgb(183, 182, 182);
+}
+.middle-tab .right-items .video {
+    display: flex;
+    align-items: center;
+}
+.middle-tab .hot {
+    margin: 0 15px;
+}
+.search-error {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.search-post-container {
+    margin: 0 auto;
+    position: relative;
+}
+.search-post-container::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.searchPost {
+    /* height: 100vh;
+    padding-bottom: 50px; */
+    background-color: #f5f5f5;
+}
 
 /* #endregion搜索页面end */
+
 
 /* #region消息页面start */
 .message-page {
@@ -367,11 +637,10 @@ body {
 /* 其他页面 */
 .video-page,.post-page,.mine-page {
     width: 100%;
-    /* height: 708px; */
     height: 100%;
 }
 
-/* 发布笔记页面 */
+/* #region发布笔记页面start */
 .post-notes-page {
     width: 100%;
     height: 100%;
@@ -493,3 +762,4 @@ body {
     color: white;
     font-size: 15px;
 }
+/* #endregion发布笔记页面end */
